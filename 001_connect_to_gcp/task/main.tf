@@ -3,8 +3,7 @@ terraform {
 
   required_providers {
     google = {
-      source = "hashicorp/google"
-      # TODO: pin a provider version, e.g. "~> 5.0"
+      source  = "hashicorp/google"
       version = "~> 5.0"
     }
   }
@@ -20,8 +19,7 @@ provider "google" {
 data "google_project" "this" {
 }
 
-
 # TODO: add an output that prints the project's display name
-output "project print" {
+output "project_display_name" {
   value = data.google_project.this.name
 }
