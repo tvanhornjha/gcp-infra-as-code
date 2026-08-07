@@ -10,8 +10,13 @@ terraform {
 }
 
 provider "google" {
-  project = "" # TODO: your project ID
+  project = "training-project-07" # TODO: your project ID
   region  = "us-central1"
 }
 
 # TODO: define a google_storage_bucket resource named "my_bucket"
+resource "google_storage_bucket" "my_bucket" {
+  name = "my_bucket"
+  location = "us-central1"
+}
+

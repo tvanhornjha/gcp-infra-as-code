@@ -23,6 +23,12 @@ matches your setup:
   This prints `PROJECT_ID`, `NAME`, and `PROJECT_NUMBER`. You want the
   **ID** — it's not always the same as the display name, and it's
   different from the numeric project number.
+
+  PROJECT_ID: training-project-07
+NAME:  training-project-07
+PROJECT_NUMBER: 880897764099
+
+
 - **In the GCP Console:** console.cloud.google.com → the project
   picker at the top of the page, or the "Project info" card on the
   Home/Dashboard page.
@@ -31,6 +37,7 @@ matches your setup:
   printed directly on the lab instructions panel when your
   environment is provisioned — often something like
   `qwiklabs-gcp-01-xxxxxxxx`.
+  training-project-07
 
 Write it down — you'll need it in every exercise folder. If none of
 the above turned up a project (e.g. `gcloud projects list` comes back
