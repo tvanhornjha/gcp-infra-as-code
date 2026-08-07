@@ -10,12 +10,8 @@ terraform {
 }
 
 provider "google" {
-  project = "" # TODO: your project ID
-  region  = "us-central1"
-}
-
-variable "project_id" {
-  type = string
+  project = var.project_id # TODO: your project ID
+  region  = var.region
 }
 
 # TODO: variable "environment" with a validation block restricting it
@@ -26,3 +22,22 @@ variable "project_id" {
 
 # TODO: google_storage_bucket "this" using var.environment in labels
 # and var.retention_days in a lifecycle_rule
+resource "google_storage_bucket" "project5_bucket" {
+  name     = "my-data-bucket-${var.environment}"
+  location = var.region
+
+  labels = {
+    environment = var.environment
+    managed_by  = "terraform"
+  }
+
+  lifecycle_rule {
+    condition {
+      age = var.retention_days
+    }
+
+    action {
+      type = "Delete"
+    }
+  }
+}
